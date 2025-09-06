@@ -20,7 +20,7 @@ func NewTaskHandler(repo repository.TaskRepository) *TaskHandler {
 }
 
 // creating a new task POST /api/v1/tasks
-func (h *TaskHandler) CreatetTask(c *gin.Context) {
+func (h *TaskHandler) CreateTask(c *gin.Context) {
 	var req models.CreateTaskRequest
 
 	if err := c.ShouldBindJSON(&req); err != nil {

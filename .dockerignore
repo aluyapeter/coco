@@ -1,0 +1,7 @@
+.git
+.rnv
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.log
