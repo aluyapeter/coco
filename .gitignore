@@ -1,0 +1,39 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Go build output
+/bin/
+/build/
+/dist/
+/out/
+
+# Logs
+*.log
+
+# Dependency directories
+vendor/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Env & secrets
+.env
+*.env
+
+# Docker-related
+/infra/pgdata
+/infra/*.pid
+/infra/*.sock
+
+# Postgres volume (if accidentally created in project folder)
+/infra/data
