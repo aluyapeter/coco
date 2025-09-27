@@ -48,7 +48,7 @@ func main() {
 		})
 	})
 
-	port := "9090"
+	port := "9000"
 	log.Printf("🚀 Starting Task API server on port %s...", port)
 	log.Printf("📍 Health check: http://localhost:%s/health", port)
 	log.Printf("📋 API endpoints: http://localhost:%s/api/v1/tasks", port)
