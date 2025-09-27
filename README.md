@@ -27,17 +27,20 @@ A production-ready RESTful API for task management built with Go, Gin framework,
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Go 1.21 or higher
 - Docker & Docker Compose
 - Git
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/aluyapeter/coco.git
 cd coco
 ```
 
 ### 2. Set Up Environment
+
 ```bash
 # Copy environment template
 cp .env.example .env
@@ -47,6 +50,7 @@ nano .env
 ```
 
 ### 3. Start Database
+
 ```bash
 # Start PostgreSQL with Docker
 docker run --name taskapi-postgres \
@@ -58,6 +62,7 @@ docker run --name taskapi-postgres \
 ```
 
 ### 4. Install Dependencies & Run
+
 ```bash
 # Install Go dependencies
 go mod download
@@ -71,27 +76,29 @@ go run main.go
 ## 📖 API Documentation
 
 ### Base URL
+
 ```
 http://localhost:9090/api/v1
 ```
 
 ### Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/health` | Health check |
-| `POST` | `/tasks` | Create a new task |
-| `GET` | `/tasks` | Get all tasks |
-| `GET` | `/tasks/:id` | Get task by ID |
-| `PUT` | `/tasks/:id` | Update task |
-| `DELETE` | `/tasks/:id` | Delete task |
-| `GET` | `/tasks/stats` | Get task statistics |
+| Method   | Endpoint       | Description         |
+| -------- | -------------- | ------------------- |
+| `GET`    | `/health`      | Health check        |
+| `POST`   | `/tasks`       | Create a new task   |
+| `GET`    | `/tasks`       | Get all tasks       |
+| `GET`    | `/tasks/:id`   | Get task by ID      |
+| `PUT`    | `/tasks/:id`   | Update task         |
+| `DELETE` | `/tasks/:id`   | Delete task         |
+| `GET`    | `/tasks/stats` | Get task statistics |
 
 ### Example Requests
 
 #### Create Task
+
 ```bash
-curl -X POST http://localhost:9090/api/v1/tasks \
+curl -X POST http://localhost:9000/api/v1/tasks \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Learn Go",
@@ -100,11 +107,13 @@ curl -X POST http://localhost:9090/api/v1/tasks \
 ```
 
 #### Get All Tasks
+
 ```bash
 curl http://localhost:9090/api/v1/tasks
 ```
 
 #### Filter Tasks
+
 ```bash
 # Get completed tasks
 curl "http://localhost:9090/api/v1/tasks?status=completed"
@@ -114,6 +123,7 @@ curl "http://localhost:9090/api/v1/tasks?status=pending"
 ```
 
 #### Update Task
+
 ```bash
 curl -X PUT http://localhost:9090/api/v1/tasks/1 \
   -H "Content-Type: application/json" \
@@ -124,16 +134,17 @@ curl -X PUT http://localhost:9090/api/v1/tasks/1 \
 
 ### Environment Variables
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `DB_HOST` | Database host | localhost | No |
-| `DB_PORT` | Database port | 5432 | No |
-| `DB_USER` | Database username | - | **Yes** |
-| `DB_PASSWORD` | Database password | - | **Yes** |
-| `DB_NAME` | Database name | coco_db | No |
-| `SERVER_PORT` | API server port | 9090 | No |
+| Variable      | Description       | Default   | Required |
+| ------------- | ----------------- | --------- | -------- |
+| `DB_HOST`     | Database host     | localhost | No       |
+| `DB_PORT`     | Database port     | 5432      | No       |
+| `DB_USER`     | Database username | -         | **Yes**  |
+| `DB_PASSWORD` | Database password | -         | **Yes**  |
+| `DB_NAME`     | Database name     | coco_db   | No       |
+| `SERVER_PORT` | API server port   | 9090      | No       |
 
 ### Example .env
+
 ```env
 DB_HOST=localhost
 DB_PORT=5432
@@ -182,6 +193,7 @@ type Task struct {
 ## 🚀 Deployment
 
 ### Docker Deployment
+
 ```bash
 # Build image
 docker build -t coco.
@@ -191,6 +203,7 @@ docker run -p 9090:9090 coco
 ```
 
 ### Production Considerations
+
 - Set `GIN_MODE=release`
 - Use strong database passwords
 - Configure proper CORS origins
